@@ -31,7 +31,7 @@ def steward(config_file_path:str, ukb_rsem_prepare_genome_path:str, send_message
     with open('ukb_rsem_prepare_genome_command.txt', 'w') as command_f:
         command_f.write(ukb_rsem_prepare_genome_command + '\n')
         command_f.write('return value:{}\n'.format(str(return_value)))
-    time.sleep(5)
+    time.sleep(10)
     # send the result files 
     feedback_dict = {
         'tTaskId'         : task_id,

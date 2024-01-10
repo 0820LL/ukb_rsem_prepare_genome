@@ -16,6 +16,13 @@ process RSEM_PREPAREREFERENCE {
     script:
     """
     mkdir rsem_genome
+    STAR \\
+            --runMode genomeGenerate \\
+            --genomeDir rsem_genome/ \\
+            --genomeFastaFiles $fasta \\
+            --sjdbGTFfile $gtf \\
+            --runThreadN ${params.threads_num} 
+
     rsem-prepare-reference \\
         --gtf $gtf \\
         --num-threads ${params.threads_num} \\
